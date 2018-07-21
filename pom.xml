@@ -52,6 +52,14 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- =============== DRIVER DATA BASE DEPENDENCY =============== -->
+		
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
 		<!-- =============== WEB JARs DEPENDENCY =============== https://www.webjars.org/ -->
 		
 		<dependency>
