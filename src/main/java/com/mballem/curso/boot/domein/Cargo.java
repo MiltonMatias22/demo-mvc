@@ -17,8 +17,8 @@ public class Cargo extends AbstractEntity<Long> {
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
 	
-	@ManyToOne // Um departamente pode ter vários cargos
-	@JoinColumn(name = "id_departamento_FK")
+	@ManyToOne
+	@JoinColumn(name = "id_departamento_fk")
 	private Departamento departamento;
 	
 	@OneToMany(mappedBy = "cargo")
@@ -46,7 +46,5 @@ public class Cargo extends AbstractEntity<Long> {
 
 	public void setFuncionarios(List<Funcionario> funcionarios) {
 		this.funcionarios = funcionarios;
-	}
-	
-	
+	} 
 }

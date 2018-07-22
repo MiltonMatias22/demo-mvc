@@ -52,6 +52,13 @@
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- =============== THYMELEAF LAYOUT DIALECT DEPENDENCY =============== -->
+		
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+		
 		<!-- =============== DRIVER DATA BASE DEPENDENCY =============== -->
 		
 		<dependency>

@@ -15,7 +15,7 @@ public class Departamento extends AbstractEntity<Long> {
 	@Column(name = "nome", nullable = false, unique = true, length = 60)
 	private String nome;
 	
-	@OneToMany(mappedBy = "departamento") // Muitos cargos pertencem a um único departamento
+	@OneToMany(mappedBy = "departamento")
 	private List<Cargo> cargos;
 
 	public String getNome() {
