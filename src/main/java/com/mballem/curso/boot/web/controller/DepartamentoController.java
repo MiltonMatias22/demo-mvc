@@ -34,7 +34,7 @@ public class DepartamentoController {
 	@PostMapping("/salvar")
 	public String salvar(Departamento departamento, RedirectAttributes redirectAttributes) {
 		service.salvar(departamento);
-		redirectAttributes.addFlashAttribute("success", "Departamento inserido com sucesso!");
+		redirectAttributes.addFlashAttribute("success", "Registro inserido com sucesso!");
 		return "redirect:/departamentos/cadastrar";
 	}
 	
@@ -47,17 +47,17 @@ public class DepartamentoController {
 	@PostMapping("/editar")
 	public String editar(Departamento departamento, RedirectAttributes redirectAttributes) {
 		this.service.editar(departamento);
-		redirectAttributes.addFlashAttribute("success", "Departamento alterado com sucesso!");
+		redirectAttributes.addFlashAttribute("success", "Registro alterado com sucesso!");
 		return "redirect:/departamentos/cadastrar";
 	}
 	
 	@GetMapping("/excluir/{id}")
 	public String excluir(@PathVariable("id") Long id, ModelMap model) {
 		if(this.service.departamentoTemCargos(id)) {
-			model.addAttribute("fail", "Departamento não removido. Posui cargo(s) vinculado(s)!");			
+			model.addAttribute("fail", "Registro não removido. Posui cargo(s) vinculado(s)!");			
 		}else {
 			this.service.excluir(id);
-			model.addAttribute("success", "Departamento removido com sucesso!");
+			model.addAttribute("success", "Registro removido com sucesso!");
 		}
 		return listar(model);
 	}
