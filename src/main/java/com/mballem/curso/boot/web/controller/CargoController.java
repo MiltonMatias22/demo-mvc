@@ -74,4 +74,5 @@ public class CargoController {
 	public List<Departamento> listaDeDepartamentos(){
 		return departamentoService.buscarTodos();
 	}
+	
 }
