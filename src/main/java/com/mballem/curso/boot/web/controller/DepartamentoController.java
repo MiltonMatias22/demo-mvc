@@ -1,8 +1,11 @@
 package com.mballem.curso.boot.web.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +35,12 @@ public class DepartamentoController {
 	}
 	
 	@PostMapping("/salvar")
-	public String salvar(Departamento departamento, RedirectAttributes redirectAttributes) {
+	public String salvar(@Valid Departamento departamento, BindingResult result, RedirectAttributes redirectAttributes) {
+		
+		if(result.hasErrors()) {
+			return "/departamento/cadastro";
+		}
+		
 		service.salvar(departamento);
 		redirectAttributes.addFlashAttribute("success", "Registro inserido com sucesso!");
 		return "redirect:/departamentos/cadastrar";
@@ -45,7 +53,12 @@ public class DepartamentoController {
 	}
 	
 	@PostMapping("/editar")
-	public String editar(Departamento departamento, RedirectAttributes redirectAttributes) {
+	public String editar(@Valid Departamento departamento, BindingResult result, RedirectAttributes redirectAttributes) {
+		
+		if(result.hasErrors()) {
+			return "/departamento/cadastro";
+		}
+		
 		this.service.editar(departamento);
 		redirectAttributes.addFlashAttribute("success", "Registro alterado com sucesso!");
 		return "redirect:/departamentos/cadastrar";
